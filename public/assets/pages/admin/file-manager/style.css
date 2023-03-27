@@ -1,0 +1,84 @@
+#file-manager .file-manager-left{
+	/*border-right: 1px solid #EAEAEA;*/
+}
+
+#file-manager .file-manager-right{
+	
+}
+
+#file-manager .file-manager-folder{
+	border: 1px solid #EAEAEA;
+	padding: 0.5rem;
+	padding-left: 0;
+	border-radius: .2rem;
+	margin-bottom: .5rem;
+	cursor: pointer;
+}
+
+#file-manager .file-manager-folder:hover .file-manager-folder-icon,
+#file-manager .file-manager-folder.file-manager-item-actived .file-manager-folder-icon{
+	color: white
+}
+
+#file-manager .file-manager-folder:hover .file-manager-folder-description,
+#file-manager .file-manager-folder.file-manager-item-actived .file-manager-folder-description{
+	color: #EAE9E9
+}
+
+#file-manager .file-manager-folder:hover,
+#file-manager .file-manager-folder.file-manager-item-actived{
+	background-color: var(--primary);
+	color: white
+}
+
+#file-manager .file-manager-folder>.row>div:first-child,
+#file-manager .file-manager-type>.row>div:first-child{
+	width: 50px;
+	text-align: center;
+}
+
+#file-manager .file-manager-folder>.row>div:last-child,
+#file-manager .file-manager-type>.row>div:last-child{
+	width: calc(100% - 50px)
+}
+
+#file-manager .file-manager-folder-icon{
+	color: #B3C0CE;
+	font-size: 1.5rem
+}
+
+#file-manager .file-manager-type-icon{
+	font-size: 1.2rem
+}
+
+#file-manager .file-manager-folder-title,
+#file-manager .file-manager-type-title{
+	font-size: .9rem
+}
+
+#file-manager .file-manager-folder-description{
+	font-size: .8rem;
+	color: #B3C0CE
+}
+
+.file-manager-filter-type{
+	border: 1px solid #EAEAEA;
+}
+
+#file-manager .file-manager-type{
+	padding: 0.4rem;
+	padding-left: 0;
+	cursor: pointer;
+	border-bottom: 1px solid #EAEAEA
+}
+
+#file-manager .file-manager-type:last-child{
+	border-bottom: none
+}
+
+#file-manager .file-manager-type:hover,
+#file-manager .file-manager-type.file-manager-item-actived,
+#file-manager .file-manager-type:hover .file-manager-type-icon,
+#file-manager .file-manager-type.file-manager-item-actived .file-manager-type-icon{
+	color: var(--primary)
+}

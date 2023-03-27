@@ -1,0 +1,426 @@
+@charset "UTF-8";
+html {
+	background-image: none;
+	background-color: <?php echo Option::get('settings__style_admin_background_color'); ?> !important;
+	-webkit-font-smoothing: antialiased;
+}
+
+.admin{
+	margin:0 auto;
+	overflow-y:auto
+}
+
+.admin-header{
+	width: 100%;
+	position: fixed;
+	z-index: 98;
+	height: 65px
+}
+.admin-header>div:last-child{
+	position: absolute;
+	top: 50%;
+	right: 0;
+	transform: translate(0,-50%);
+}
+.admin-header-user{
+	cursor: pointer;
+	position: relative;
+}
+
+.admin-header .user-avatar>img{
+	height: 40px !important;
+	width: 40px !important;
+	border-radius: 50%;
+	object-fit: cover;
+}
+.admin-header-user>nav{
+	display: none;
+	position: fixed;
+	min-width: 220px;
+	top: calc(100% + 10px);
+	right: 20px;
+	box-shadow: 0 0 20px 0 rgba(0,0,0,.3);
+	padding: 10px
+}
+.admin-header-user>nav:before{
+	content: "";
+	border: 10px solid transparent;
+	position: absolute;
+	border-radius: 3px;
+	top: -8px;
+	right: 20px;
+	transform: rotate(45deg);
+	z-index: 98;
+}
+.admin-header-user>nav>a{
+	display: block;
+	padding: 10px;
+	font-size: 0.9rem;
+	transition: .1s all
+}
+.admin-left{
+	position: fixed;
+	width: 250px;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	overflow: hidden;
+	z-index: 97;
+	box-shadow: 0 0 35px 0 rgba(154,161,171,.15);
+	transition: width 0.1s;
+}
+.admin .logo-outer{
+	font-size: 20px;
+	text-transform: uppercase;
+	display: block;
+	text-align: center;
+	padding: 0 15px
+}
+.admin .logo{
+	max-height: 40px;
+	max-width: 200px
+}
+.admin-header-left{
+	width: 250px;
+}
+.admin-scrollbar{
+	top: 67px;
+	position: absolute;
+	bottom: 0px;
+	left: 0px;
+	right: -25px;
+	overflow-y: scroll;
+	overflow-x: hidden;
+}
+.admin-left>div{
+	padding-bottom: 20px;
+}
+
+.admin-left.admin-min{width:50px;}
+.admin-left.admin-min .admin-collapse span,
+.admin-left.admin-min nav span,
+.admin-left.admin-min a span,
+.admin-left.admin-min ol li span,
+.admin-left.admin-min .admin-arrow-right::after{
+	display: none !important
+}
+.admin-right.admin-min{
+	margin-left:100px !important;
+}
+.admin-right{
+	padding-top: 80px;
+	margin-left: 300px;
+	margin-right: 50px;
+}
+
+
+.admin-container{
+	animation: fadein .8s;
+	padding: 40px 0 40px 0;
+	margin: auto;
+}
+
+.admin-left ol{
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	display: none;
+	position: relative;
+}
+.admin-left nav,
+.admin-left ol li a,
+.admin-left>div a,
+.admin-left .admin-collapse{
+	margin: 0;
+	list-style-type: none;
+	user-select: none;
+	position: relative;
+	padding: <?php echo Option::get('settings__style_admin_menu_padding'); ?>rem;
+	padding-left: <?php echo Option::get('settings__style_admin_menu_padding') + 0.2; ?>rem;
+	border: none;
+	display: block;
+	cursor: pointer;
+	overflow: hidden;
+	font-size: <?php echo Option::get('settings__style_admin_menu_font_size'); ?>rem;
+	transition: .1s all;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+.admin-collapse-icon{
+	cursor: pointer;
+	display: block;
+	padding: 5px
+}
+.admin-left ol li a{
+	padding-left: 3rem
+}
+.admin-left.admin-min ol li a{
+	padding-left: <?php echo Option::get('settings__style_admin_menu_padding') + 0.2; ?>rem
+}
+.admin-left .bx{
+	font-size: 1.1rem;
+	min-width: 2.0rem;
+}
+
+.admin-left ol i{
+	display: none;
+}
+.admin-left.admin-min ol i{
+	display: inline-block !important;
+}
+.admin-left small{
+	float:right;
+	padding:3px;
+	margin-right: 18px;
+	background-color: var(--primary);
+	border-radius: 50%;
+	min-width: 22px;
+	text-align: center;
+	color: white;
+	font-size: 11px
+}
+
+#header-notifications{
+	margin-right: 5px;
+}
+#header-notifications>a{
+	padding: 5px 8px;
+	position: relative;
+}
+#header-notifications>a>i,
+.admin-collapse-icon>i{
+	font-size: 1.3rem
+}
+#header-notifications>a>sub{
+	position: absolute;
+	right: -5px;
+	top: -2px;
+	display: inline-block;
+	text-align: center;
+	font-size: .7rem;
+	background-color: tomato;
+	color: white;
+	min-width: 20px;
+	padding: 2px;
+	border-radius: 50%;
+}
+
+#header-notifications>section{
+	display: none;
+	position: absolute;
+	top: 100%;
+	right: 20px;
+	color: #727E8C !important;
+	width: 100%;
+	max-width: 400px;
+	margin: 0;
+	padding: 0;
+	box-shadow: -7px 8px 16px 0 rgba(55,70,95,.2);
+	font-size: .9rem;
+    border-radius: 5px;
+}
+
+
+/* Light theme */
+.admin-theme-light .admin-header{
+	color: #8494A7;
+	background: white;
+	box-shadow: 0 2px 4px 0 rgba(43,43,43,.1);
+}
+.admin-theme-light .admin-header{
+	color: #8494A7 !important
+}
+.admin-theme-light .admin-header-user>nav{
+	background: white;
+}
+.admin-theme-light .admin-header-user>nav:before{
+	border-left-color: #fff;
+	border-top-color: #fff;
+}
+.admin-theme-light .admin-header-user>nav>a{
+	color: #8494A7;
+}
+.admin-theme-light .admin-left{
+	background: white;
+	color: #8494A7;
+}
+.admin-theme-light .admin-left>div a{
+	color: #8494A7;
+}
+.admin-theme-light .admin-left .admin-item{
+	background-color: white;
+}
+.admin-theme-light .admin-left ol a{
+	background: #fafafa !important;
+}
+.admin-theme-light .admin-left .admin-actived,
+.admin-theme-light .admin-left>div a:hover,
+.admin-theme-light .admin-left nav:hover,
+.admin-theme-light .admin-left ol li:hover,
+.admin-theme-light .admin-left .admin-collapse:hover{
+	color: white !important;
+	background-color: <?php echo Option::get('settings__style_admin_actived_background'); ?> !important
+}
+.admin-theme-light .admin-header-user>nav>:hover{
+	color: var(--primary) !important
+}
+.admin-theme-light .admin-actived-color{
+	/*color: var(--primary-color) !important*/
+}
+.admin-theme-light .admin-left>div a.admin-actived:after{
+	content: "";
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+}
+.admin-theme-light .admin-left:hover .admin-actived{
+	opacity: .6;
+}
+
+
+/* Dark theme */
+.admin-theme-dark .admin-header{
+	color: #AEB7C2;
+	background: #333E48;
+	border-bottom: 1px solid #444F5F;
+}
+.admin-theme-dark .admin-header{
+	color: #AEB7C2 !important
+}
+.admin-theme-dark .admin-header-user>nav{
+	background: #333E48;
+}
+.admin-theme-dark .admin-header-user>nav:before{
+	border-left-color: #333E48;
+	border-top-color: #333E48;
+}
+.admin-theme-dark .admin-header-user>nav>a{
+	color: #AEB7C2;
+}
+.admin-theme-dark .admin-left{
+	background: #333E48;
+	color: #AEB7C2;
+}
+.admin-theme-dark .admin-left>div a{
+	color: #AEB7C2;
+}
+.admin-theme-dark .admin-left .admin-item{
+	background-color: #333E48;
+}
+.admin-theme-dark .admin-left ol a{
+	background: #2B333E !important;
+}
+.admin-theme-dark .admin-left .admin-actived{
+	position: relative;
+	color: white !important;
+	background-color: <?php echo Option::get('settings__style_admin_actived_background'); ?> !important
+}
+.admin-theme-dark .admin-left>div a.admin-actived:after{
+	content: "";
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+}
+.admin-theme-dark .admin-left>div a:hover,
+.admin-theme-dark .admin-left nav:hover,
+.admin-theme-dark .admin-left ol li:hover,
+.admin-theme-dark .admin-left .admin-collapse:hover{
+	color: white !important;
+	background-color: <?php echo Option::get('settings__style_admin_actived_background'); ?> !important
+}
+.admin-theme-dark .admin-header-user>nav>:hover{
+	color: white !important
+}
+.admin-theme-dark .admin-left:hover .admin-actived{
+	opacity: .6;
+}
+.admin-theme-dark .admin-scrollbar{
+	top: 65px !important
+}
+
+@keyframes rotate { 100% {transform:rotateY(360deg); } }
+
+@keyframes Gradient{
+	0% {background-position: 0% 50%}
+	50% {background-position: 100% 50%}
+	100% {background-position: 0% 50%}
+}
+
+
+
+.admin-left .admin-arrow-right:after {
+	pointer-events: none;
+	border: none;
+	border-right-color: none;
+	border-width: 0px;
+	margin-top: 0px;
+	content: "\ea4a";
+	display: inline-block;
+	font-family: "boxicons" !important;
+	font-size: 1rem;
+	line-height: 1;
+	position: absolute;
+	right: 25px;
+	top: 35%;
+	transform: rotate(0);
+	transition: transform 0.2s;
+	opacity: .6
+}
+.admin-left .admin-arrow-down:after {
+	transform: rotate(90deg);
+}
+
+@keyframes animatetop{from{top:1px;opacity:0} to{top:2;opacity:1}}
+
+
+
+.admin .form-item{
+	background-color: white
+}
+.admin .ul{
+	list-style-type: none
+}
+
+@media (max-width: 1200px) {
+
+
+	.admin{
+		margin-top: 0px;
+		margin-right: 0px;
+		box-shadow:none
+	}
+
+	.admin-scrollbar{
+		margin-right: 15px
+	}
+
+
+}
+
+@media (min-width: 1200px) {
+
+
+
+}
+
+@media (max-width: 768px) {
+	.admin-right,
+	.admin-right.admin-min{
+		margin-left: 15px !important;
+		margin-right: 15px !important
+	}
+
+	.admin-left{
+		display: none
+	}
+	.admin-header-left{
+		width: auto
+	}
+	.admin .logo-outer{
+		padding: 0 5px
+	}
+}

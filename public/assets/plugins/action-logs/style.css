@@ -1,0 +1,54 @@
+/* Timeline */
+/* ---------------- */
+.widget-timeline li {
+  padding: 1.1rem 0;
+  list-style: none;
+  position: relative;
+}
+
+.widget-timeline li.timeline-items:before {
+  position: absolute;
+  content: "";
+  left: -37px;
+  top: 17px;
+  border: 3px solid #FFFFFF;
+  box-shadow: 1px 2px 6px 0 rgba(25, 42, 70, 0.3);
+  border-radius: 50%;
+  background: var(--primary);
+  height: 13px;
+  width: 13px;
+  z-index: 2;
+}
+
+.widget-timeline li.timeline-items.active:not(:last-child):after {
+  position: absolute;
+  content: "";
+  width: 1px;
+  background: #dfe3e7;
+  left: -31px;
+  top: 22px;
+  height: 100%;
+  z-index: 1;
+}
+
+.widget-timeline li.timeline-items .timeline-content {
+  padding: 0.5rem 1rem;
+  background-color: #fafbfb;
+  border-radius: 0.267rem;
+  display: flex;
+  align-items: center;
+}
+
+.widget-timeline li .timeline-time {
+  float: right;
+  color: #828D99;
+  font-size: 0.9rem;
+}
+
+.widget-timeline li .timeline-title {
+  margin-bottom: 0.25rem;
+}
+
+.widget-timeline li .timeline-text {
+  margin-bottom: 0.5rem;
+}

@@ -1,0 +1,23 @@
+<?php
+return array (
+  'delete_role' => 'Xóa chức vụ',
+  'set_permission_for_role' => 'Thiết lập quyền cho chức vụ',
+  'create_role' => 'Tạo chức vụ',
+  'update_role' => 'Sửa chức vụ',
+  'update_permission_name' => 'Cập nhật tên quyền',
+  0 => 'admin/tools/logs_action.',
+  'update_language' => 'Chỉnh sửa ngôn ngữ',
+  'login_with_social_google' => 'Đăng nhập qua Google',
+  'login_failed' => 'Đăng nhập thất bại',
+  'login_with_password' => 'Đăng nhập bằng mật khẩu',
+  'update_setting' => 'Cập nhật cài đặt',
+  'update_pages_info' => 'Cập nhật thông tin trang',
+  1 => 'admin/tools/logs_action.',
+  'update_profile' => 'Cập nhật tài khoản',
+  'update_password' => 'Cập nhật mật khẩu',
+  'send_notification' => 'Gửi thông báo',
+  'delete_notification' => 'Xóa thông báo',
+  'change_password' => 'Đổi mật khẩu',
+  'change_avatar' => 'Đổi ảnh đại diện',
+  'logout_account' => 'Đăng xuất tài khoản',
+);

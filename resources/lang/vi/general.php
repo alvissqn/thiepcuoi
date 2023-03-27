@@ -1,0 +1,22 @@
+<?php
+return array (
+  'update_success' => 'Cập nhật thành công',
+  'update_error' => 'Lỗi cập nhật',
+  'update_error_pending_try_again' => 'Lỗi cập nhật, đang thử lại...',
+  'select_field_empty' => 'Tất cả',
+  'item_list_is_empty' => 'Danh sách trống',
+  'date_start' => 'Từ ngày',
+  'date_end' => 'Đến ngày',
+  'total_record' => 'Tổng số',
+  'pagination_limit' => 'Số lượng/trang',
+  'gender_unknown' => 'Chưa cập nhật',
+  'gender_male' => 'Nam',
+  'gender_female' => 'Nữ',
+  'gender_other' => 'Khác',
+  'no' => 'Không',
+  'yes' => 'Có',
+  'new' => 'Mới',
+  'old' => 'Cũ',
+  'unread' => 'Chưa đọc',
+  'readed' => 'Đã đọc',
+);

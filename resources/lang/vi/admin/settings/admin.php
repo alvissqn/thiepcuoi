@@ -1,0 +1,21 @@
+<?php
+return array (
+  'quick_edit_language' => 'Chỉnh sửa ngôn ngữ nhanh bằng chuột phải',
+  'setting_general_heading_title' => 'Thiết lập chung',
+  'setting_theme_heading_title' => 'Giao diện',
+  'setting_theme' => 'Chọn giao diện',
+  'setting_theme_font_size' => 'Cỡ chữ toàn trang (nên để trống)',
+  'setting_admin_theme_heading_title' => 'Giao diện trang quản trị',
+  'setting_admin_theme_menu_padding' => 'Padding menu',
+  'setting_admin_theme_menu_font_size' => 'Cỡ chữ menu',
+  'setting_admin_background_color' => 'Màu nền',
+  'setting_admin_menu_actived_background' => 'Màu nền actived',
+  'setting_theme_primary_color' => 'Màu chủ đạo',
+  'setting_theme_primary_hover' => 'Màu chủ đạo (hover)',
+  'setting_theme_font' => 'Font chữ',
+  'setting_theme_css_custom' => 'CSS tùy chỉnh',
+  0 => 'admin/settings/admin.',
+  'setting_theme_secondary_color' => 'Màu phụ',
+  'setting_theme_secondary_hover' => 'Màu phụ (hover)',
+  '' => 'admin/settings/admin.',
+);

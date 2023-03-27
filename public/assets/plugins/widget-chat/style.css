@@ -1,0 +1,92 @@
+/* widget chat */
+/* ----------- */
+.widget-chat .widget-chat-container {
+  position: relative;
+  height: 420px;
+  text-align: center;
+  padding: 1.4rem;
+}
+
+.widget-chat .chat-content .chat-body {
+  overflow: hidden !important;
+  margin: 0.67rem 0 0 0 !important;
+}
+
+.widget-chat .chat-content .chat-body .chat-message {
+  position: relative !important;
+  float: right !important;
+  text-align: right !important;
+  padding: 0.75rem 1rem !important;
+  margin: 0.2rem 0.2rem 1.8rem 0 !important;
+  max-width: calc(100% - 5rem) !important;
+  clear: both !important;
+  word-break: break-word !important;
+  color: #FFFFFF !important;
+  background: var(--primary) !important;
+  border-radius: 0.267rem !important;
+  box-shadow: 0 2px 4px 0 rgba(90, 141, 238, 0.6) !important;
+}
+
+.widget-chat .chat-content .chat-body .chat-message p {
+  margin-bottom: 0 !important;
+}
+
+.widget-chat .chat-content .chat-body .chat-message .chat-time {
+  position: absolute !important;
+  bottom: -20px !important;
+  right: 0px !important;
+  color: #828D99 !important;
+  font-size: 0.8rem !important;
+  white-space: nowrap !important;
+}
+
+.widget-chat .chat-content .chat-left .chat-message {
+  text-align: left !important;
+  float: left !important;
+  margin: 0.2rem 0 1.8rem 0.2rem !important;
+  color: #727E8C !important;
+  background-color: #fafbfb !important;
+  box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.3) !important;
+}
+
+.widget-chat.widget-chat-demo {
+  position: fixed;
+  z-index: 1031;
+  bottom: 11.5%;
+  right: 80px;
+  width: 350px;
+}
+
+.widget-chat.widget-chat-demo .widget-chat-container {
+  height: 27rem;
+}
+
+.widget-chat.widget-chat-demo .chat-content .chat-message {
+  max-width: calc(100% - 3rem);
+}
+
+.widget-chat.widget-chat-demo .card {
+  box-shadow: 0px 0px 22px 0 rgba(25, 42, 70, 0.25);
+}
+
+.chat-demo-button {
+  position: fixed;
+  bottom: 5%;
+  right: 80px;
+  z-index: 1031;
+}
+
+.chat-demo-button i {
+  top: 0;
+}
+
+@media (max-width: 575.98px) {
+  .widget-chat.widget-chat-demo {
+    right: 0;
+    padding: 0 1.2rem;
+    width: 100%;
+  }
+  .widget-chat.widget-chat-demo .widget-chat-container {
+    height: 21rem;
+  }
+}
