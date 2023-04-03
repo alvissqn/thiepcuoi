@@ -197,6 +197,32 @@ return [
 				'permission'       => 'admin',
 				'load_js_language' => []
 			],
+            'editor-image' => [
+                'label'            => 'Thiết Kế Thiệp',
+                'count'            => 0,
+                'count_style'      => 'danger',
+                'hidden'           => false,
+                'permission'       => 'admin',
+                'load_js_language' => []
+            ],
 		]
 	],
+    'template' => [
+        'label'             => 'Mẫu Thiệp',
+        'icon'          => 'bx-wrench',
+        'count'         => 0,
+        'count_style'   => 'primary',
+        'permission'    => 'admin',
+        'hidden'        => false,
+        'subs'          => [
+            'list-template' => [
+                'label'     => 'Danh sách',
+                'count'     => 0,
+                'count_style' => 'warning',
+                'hidden'    => false,
+                'permission' => 'admin',
+                'load_js_language' => []
+            ],
+        ]
+    ],
 ];

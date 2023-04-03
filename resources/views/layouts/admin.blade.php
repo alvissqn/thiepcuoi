@@ -89,7 +89,7 @@
 
 										<!-- Chưa đọc -->
 										<div class="tab-pane active" id="header-notifications-unread">
-								
+
 										</div>
 										<!-- /Chưa đọc -->
 
@@ -164,7 +164,9 @@
 							$itemName = $item['label'];
 						@endphp
 						{{-- Menu bình thường --}}
+
 						@if( empty($item['subs']) )
+
 							<a href="{{ strpos($url, '://') === false ? '/admin/'.$url : $url }}" class="{!! ( ($pageParams['name'] ?? null) == $url ? 'admin-actived' : '') !!}">
 								<i class="bx {{ $item['icon'] }}"></i>
 								<span>
@@ -191,6 +193,7 @@
 							</nav>
 							<ol style="{!! ( ($pageParams['name'] ?? null) == $url ? 'display: block' : '') !!}">
 								@foreach( $item['subs'] as $surl => $sitem)
+
 									@if( $sitem['hidden'] || !Permission::has($sitem['permission']) )
 										@continue
 									@endif
@@ -202,7 +205,7 @@
 										<a href="{{ strpos($surl, '://') === false ? '/admin/'.$url.'/'.$surl.'' : $surl }}" class="{!! ( ($pageParams['name'] ?? null) == $url && ($pageParams['sname'] ?? null) == $surl ? 'admin-actived' : '') !!}">
 											<i class="bx bx-right-arrow-alt"></i>
 											<span class="menu-item">
-												{{ $itemName }}
+												{{ $sitem['label'] }}
 											</span>
 											@if( ($sitem['count'] ?? 0) > 0 )
 												<span class="badge badge-pill badge-{{ $sitem['count_style'] }} float-right">
@@ -240,7 +243,7 @@
 				</div>
 			</section>
 			<!--/Menu bên trái-->
-	 
+
 			<!--Nội dung bên phải-->
 			<section class="admin-right {{ ( empty($_COOKIE['admin_left_menu_min'] ?? true) ? 'admin-min' : '') }}">
 				@yield('content')
@@ -260,7 +263,7 @@
 				</p>
 			</footer>
 		@show
-		
+
 		@section('footer-assets')
 			@include('layouts.includes.footer-assets')
 		@show

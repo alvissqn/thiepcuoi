@@ -24,4 +24,12 @@ class ToolsController extends Controller{
 		$data = [];
 		return view('pages.admin.tools.logs', $data);
 	}
+
+    /*
+     * Trình sửa ảnh
+     */
+    public function editor_image(){
+        $data =[];
+        return view('pages.admin.tools.editor-image',$data);
+    }
 }

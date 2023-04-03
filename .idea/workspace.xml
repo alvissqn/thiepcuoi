@@ -128,11 +128,17 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/xampp/htdocs/thiepcuoiaz&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/xampp/htdocs/work&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\work\resources\views\dashboard\xaydung\vatlieu" />
+      <recent name="C:\xampp\htdocs\work\resources\views\dashboard\xaydung" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="phpunit.xml" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
       <TestRunner scope="XML" />
@@ -150,7 +156,16 @@
       <workItem from="1679712743535" duration="1433000" />
       <workItem from="1679714537923" duration="2666000" />
       <workItem from="1679882635226" duration="7259000" />
-      <workItem from="1679902224845" duration="4712000" />
+      <workItem from="1679902224845" duration="6269000" />
+      <workItem from="1679967050269" duration="5444000" />
+      <workItem from="1679986148353" duration="5550000" />
+      <workItem from="1680053193329" duration="5292000" />
+      <workItem from="1680075452448" duration="5585000" />
+      <workItem from="1680144644795" duration="2081000" />
+      <workItem from="1680158597710" duration="10179000" />
+      <workItem from="1680225889915" duration="3895000" />
+      <workItem from="1680245374792" duration="1487000" />
+      <workItem from="1680485847346" duration="11017000" />
     </task>
     <servers />
   </component>

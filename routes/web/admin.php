@@ -259,6 +259,11 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function(){
 			'as'   => 'admin.tools.logs',
 			'uses' => 'Admin\ToolsController@logs'
 		]);
+
+        Route::get('editor-image',[
+            'as' => 'admin.tools.editor',
+            'uses' => 'Admin\ToolsController@editor_image'
+        ]);
 	}); // Group: tools
 
 	// Quản lý file
@@ -272,9 +277,10 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function(){
 
 	}); // Group: file-manager
 
-    Route::group(['prefix' => 'template-card'],function(){
-        Route::get('/list-template',[
-            'as' => 'admin.template-card',
+    Route::group(['prefix' => 'templates'],function(){
+
+        Route::get('list-template',[
+            'as' => 'admin.template',
             'uses' => 'Admin\CardController@index'
         ]);
     }); // Group: Template
