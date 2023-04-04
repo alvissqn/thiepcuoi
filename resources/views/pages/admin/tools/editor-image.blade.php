@@ -14353,8 +14353,8 @@
                                         <div class="palleon-img-loader"></div>
                                         <img
                                             class="lazy"
-                                            data-src="assets/placeholder.jpg"
-                                            data-full="assets/placeholder-big.jpg"
+                                            data-src="/assets/placeholder.jpg"
+                                            data-full="/assets/placeholder-big.jpg"
                                             data-filename="Lorem"
                                             title="Lorem ipsum dolor"
                                         />
@@ -14371,8 +14371,8 @@
                                         <div class="palleon-img-loader"></div>
                                         <img
                                             class="lazy"
-                                            data-src="assets/placeholder.jpg"
-                                            data-full="assets/placeholder-big.jpg"
+                                            data-src="/assets/placeholder.jpg"
+                                            data-full="/assets/placeholder-big.jpg"
                                             data-filename="Lorem"
                                             title="Lorem ipsum dolor"
                                         />
@@ -14406,8 +14406,8 @@
                                         <div class="palleon-img-loader"></div>
                                         <img
                                             class="lazy"
-                                            data-src="assets/placeholder.jpg"
-                                            data-full="assets/placeholder-big.jpg"
+                                            data-src="/assets/placeholder.jpg"
+                                            data-full="/assets/placeholder-big.jpg"
                                             data-filename="Lorem"
                                             title="Lorem"
                                         />
@@ -14424,8 +14424,8 @@
                                         <div class="palleon-img-loader"></div>
                                         <img
                                             class="lazy"
-                                            data-src="assets/placeholder.jpg"
-                                            data-full="assets/placeholder-big.jpg"
+                                            data-src="/"
+                                            data-full="/assets/placeholder-big.jpg"
                                             data-filename="Lorem"
                                             title="Lorem"
                                         />
