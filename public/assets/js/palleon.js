@@ -2,10 +2,10 @@
 (function($) {
     "use strict";
 
-    $.fn.palleon = function (options) {    
+    $.fn.palleon = function (options) {
         var selector = $(this);
         var windowWidth = document.body.clientWidth;
-
+        var f_can_arr = [];
         // Default settings
         var settings = $.extend({
             baseURL: "./",
@@ -113,22 +113,22 @@
 
         // Populate Google Fonts
         $.getJSON(settings.baseURL + 'json/google-fonts.json', function(fonts) {
-            for (var i = 0; i < fonts.items.length; i++) {      
+            for (var i = 0; i < fonts.items.length; i++) {
                 selector.find('#google-fonts').append($('<option class="google-font"></option>').attr("value", fonts.items[i].family).text(fonts.items[i].family));
-            }  
+            }
         });
 
         // Populate Material Icons
         $.getJSON(settings.baseURL + 'json/material-icons.json', function(fonts) {
-            for (var i = 0; i < fonts.categories.length; i++) {   
+            for (var i = 0; i < fonts.categories.length; i++) {
                 var item = fonts.categories[i];
                 for (var ii = 0; ii < item.icons.length; ii++) {
                     var url = settings.baseURL + 'files/icons/' + item.icons[ii].group_id + '/' + item.icons[ii].ligature;
                     selector.find('#palleon-icons .palleon-grid').append('<div class="palleon-element add-element" data-elsource="' + url + '" data-loader="no" title="' + item.icons[ii].name + '">' + '<span class="material-icons">' + item.icons[ii].ligature + '</div>');
                 }
-            }  
+            }
         });
-        
+
         // Select2
         selector.find('.palleon-select.palleon-select2').select2({
             theme: "dark",
@@ -864,7 +864,7 @@
             } else if (fileExtention == 'jpg') {
                 fileExtention = 'jpeg';
             }
-            
+
             selector.find('.palleon-file-name').val(fileName);
             selector.find('.palleon-file-name').data('default', fileName);
             selector.find('#palleon-save-img-format').val(fileExtention);
@@ -1120,7 +1120,7 @@
                     }
                 });
             }
-            
+
             selector.find('#palleon-brightness').trigger('change');
             selector.find('#palleon-contrast').trigger('change');
             selector.find('#palleon-saturation').trigger('change');
@@ -1257,7 +1257,7 @@
                 input.prop('disabled', true);
                 selector.find('#palleon-templates-menu').prop('disabled', true);
             }
-            
+
         });
 
         /* Save Template */
@@ -1400,7 +1400,7 @@
                             if (webSafeFonts[i][1] == font) {
                                 loadFonts = 'no';
                                 break;
-                            } 
+                            }
                         }
                     }
                     if (loadFonts == 'yes') {
@@ -1710,7 +1710,7 @@
                 setFileName(fileName, fileExtention);
                 convertToDataURL(fullImg, function(dataUrl) {
                     tempImg.src = dataUrl;
-                    tempImg.onload = function () {    
+                    tempImg.onload = function () {
                         selector.find('#palleon-canvas-img').attr('src', dataUrl);
                         init('image');
                     };
@@ -1719,11 +1719,11 @@
                 canvasLoad('loading');
                 convertToDataURL(fullImg, function(dataUrl) {
                     tempImg.src = dataUrl;
-                    tempImg.onload = function () {    
+                    tempImg.onload = function () {
                         var image = new fabric.Image(tempImg, {
                             objectType: 'image',
                             roundedCorders: 0,
-                            stroke: '#fff', 
+                            stroke: '#fff',
                             strokeWidth: 0,
                             top: getScaledSize()[1] / 2,
                             left: getScaledSize()[0] / 2,
@@ -1741,18 +1741,18 @@
                         canvasLoad('complete');
                         canvas.fire('palleon:history', { type: 'image', text: palleonParams.added });
                     };
-                }); 
+                });
             } else if (mmediaLibraryMode == 'replace-image') {
                 canvasLoad('loading');
                 convertToDataURL(fullImg, function(dataUrl) {
                     tempImg.src = dataUrl;
-                    tempImg.onload = function () {    
+                    tempImg.onload = function () {
                         canvas.getActiveObject().setSrc(dataUrl);
                         canvas.requestRenderAll();
                         canvasLoad('complete');
                         canvas.fire('palleon:history', { type: 'image', text: palleonParams.replaced });
                     };
-                }); 
+                });
             }
             selector.find('#modal-media-library').hide();
         });
@@ -1895,7 +1895,7 @@
             });
             selector.find('#modal-svg-library').hide();
         });
-        
+
         /* Search My SVGs */
         selector.find('#palleon-svg-library-my-search').on('click', function () {
             var input = $(this).parent().find('input');
@@ -1993,16 +1993,16 @@
                 layerName = palleonParams.object;
                 layerIcon = 'category';
             } else if (type == 'textbox') {
-                layerName = palleonParams.text; 
+                layerName = palleonParams.text;
                 layerIcon = 'title';
             } else if (type == 'drawing') {
-                layerName = palleonParams.freeDrawing; 
+                layerName = palleonParams.freeDrawing;
                 layerIcon = 'brush';
             } else if (type == 'frame') {
-                layerName = palleonParams.frame; 
+                layerName = palleonParams.frame;
                 layerIcon = 'wallpaper';
             } else if (type == 'image') {
-                layerName = palleonParams.image; 
+                layerName = palleonParams.image;
                 layerIcon = 'image';
             } else if (type == 'circle') {
                 layerName = palleonParams.circle;
@@ -2024,7 +2024,7 @@
                 layerName = palleonParams.element;
                 layerIcon = 'star';
             } else if (type == 'BG') {
-                layerName = palleonParams.bg; 
+                layerName = palleonParams.bg;
                 layerIcon = 'image';
             } else if (type == 'customSVG') {
                 layerName = palleonParams.customSvg;
@@ -2464,7 +2464,7 @@
             var obj = canvas.getActiveObject();
             obj.set('originX', 'center');
             obj.set('left', getScaledSize()[0] / 2);
-            canvas.requestRenderAll();   
+            canvas.requestRenderAll();
         });
 
         /* Vertical Align Center */
@@ -2472,7 +2472,7 @@
             var obj = canvas.getActiveObject();
             obj.set('originY', 'center');
             obj.set('top', getScaledSize()[1] / 2);
-            canvas.requestRenderAll();  
+            canvas.requestRenderAll();
         });
 
 
@@ -2754,20 +2754,20 @@
                 canvas.setBackgroundImage(img, canvas.renderAll.bind(canvas), {
                     objectType: 'BG',
                     mode: mode,
-                    top: 0, 
+                    top: 0,
                     left: 0,
                     scaleX: scaleX,
                     scaleY: scaleY,
                     selectable: false,
-                    angle: rotate, 
-                    originX: originX, 
+                    angle: rotate,
+                    originX: originX,
                     originY: originY,
                     lockMovementX: true,
                     lockMovementY: true,
                     lockRotation: true,
                     erasable: true
                 }, { crossOrigin: 'anonymous' });
-            }); 
+            });
         }
 
         /* Adjust Zoom */
@@ -2782,7 +2782,7 @@
             if (zoom) {
                 zoom = zoom / 100;
                 setZoomValue = zoom;
-            } else { 
+            } else {
                 var currentZoom = selector.find('#palleon-img-zoom').val();
                 var requiredRatio = 100;
                 var ratio = 1;
@@ -2915,7 +2915,7 @@
         selector.find('#palleon-crop-style').on("change", function(){
             if ($(this).val() != '') {
                 $(this).select2("enable", false);
-            } 
+            }
             // Freeform
             if ($(this).val() == 'freeform') {
                 clipPath = new fabric.Rect({
@@ -2931,8 +2931,8 @@
                 };
                 canvas.add(clipPath);
 
-                setClipPath();   
-            } 
+                setClipPath();
+            }
             // Custom
             else if ($(this).val() == 'custom') {
                 selector.find(".crop-custom").css('display', 'flex');
@@ -2958,7 +2958,7 @@
                     br: new fabric.Control({ visible: false })
                 };
                 canvas.add(clipPath);
-                
+
                 setClipPath();
             }
             // Square
@@ -2984,9 +2984,9 @@
                     mt: new fabric.Control({ visible: false })
                 };
                 canvas.add(clipPath);
-                
+
                 setClipPath();
-            } 
+            }
             // Original
             else if ($(this).val() == 'original') {
                 clipPath = new fabric.Rect({
@@ -3005,7 +3005,7 @@
                     mt: new fabric.Control({ visible: false })
                 };
                 canvas.add(clipPath);
-                
+
                 setClipPath();
             }else {
                 var objects = canvas.getObjects();
@@ -3062,7 +3062,7 @@
                     canvas.requestRenderAll();
                 });
             }
-  
+
         });
 
         /* Crop Width Input */
@@ -3106,14 +3106,14 @@
 
             if (rotate == 0 || rotate == 180 || rotate == -180) {
                 scaleX = canvas.width / selector.find('#palleon-canvas-img')[0].width;
-                scaleY = canvas.height / selector.find('#palleon-canvas-img')[0].height;     
+                scaleY = canvas.height / selector.find('#palleon-canvas-img')[0].height;
             } else {
                 scaleX = canvas.height / selector.find('#palleon-canvas-img')[0].width;
                 scaleY = canvas.width / selector.find('#palleon-canvas-img')[0].height;
             }
 
             canvas.backgroundImage.set({ scaleX: scaleX, scaleY: scaleY});
-            
+
             updateImage();
 
             // Wait for the placeholder image fully load
@@ -3166,7 +3166,7 @@
             if (rotate == 0 || rotate == 180 || rotate == -180) {
                 canvas.setDimensions({width: originalHeight[canvasId], height: originalWidth[canvasId]});
                 scaleX = canvas.height / img.width;
-                scaleY = canvas.width / img.height; 
+                scaleY = canvas.width / img.height;
             } else {
                 canvas.setDimensions({width: originalWidth[canvasId], height: originalHeight[canvasId]});
                 scaleX = canvas.width / img.width;
@@ -3255,16 +3255,16 @@
         selector.find('#palleon-flip-horizontal').on('click', function() {
             if( !canvas.backgroundImage ) return;
             canvas.backgroundImage.toggle('flipX');
-            canvas.requestRenderAll(); 
-            canvas.fire('palleon:history', { type: 'BG', text: palleonParams.flipped });  
+            canvas.requestRenderAll();
+            canvas.fire('palleon:history', { type: 'BG', text: palleonParams.flipped });
         });
 
         /* Flip Y */
         selector.find('#palleon-flip-vertical').on('click', function() {
             if( !canvas.backgroundImage ) return;
             canvas.backgroundImage.toggle('flipY');
-            canvas.requestRenderAll(); 
-            canvas.fire('palleon:history', { type: 'BG', text: palleonParams.flipped }); 
+            canvas.requestRenderAll();
+            canvas.fire('palleon:history', { type: 'BG', text: palleonParams.flipped });
         });
 
         /* Brightness Toggle */
@@ -4048,7 +4048,7 @@
                 if (webSafeFonts[i][1] == font) {
                     loadFonts = 'no';
                     break;
-                } 
+                }
             }
             if (loadFonts == 'yes') {
                 if (typeof palleonCustomFonts === 'undefined') {
@@ -4158,7 +4158,7 @@
             window.clearTimeout(timeOut);
             timeOut = setTimeout(function(){
                 canvas.fire('palleon:history', { type: 'textbox', text: palleonParams.edited});
-            }, 500); 
+            }, 500);
         });
 
         /* Text Color Fields */
@@ -4267,7 +4267,7 @@
                             image.set({
                                 objectType: 'image',
                                 roundedCorders: 0,
-                                stroke: '#fff', 
+                                stroke: '#fff',
                                 strokeWidth: 0,
                                 top: getScaledSize()[1] / 2,
                                 left: getScaledSize()[0] / 2,
@@ -4292,15 +4292,15 @@
         /* Image Flip X */
         selector.find('#img-flip-horizontal').on('click', function() {
             canvas.getActiveObject().toggle('flipX');
-            canvas.requestRenderAll();  
-            canvas.fire('palleon:history', { type: 'image', text: palleonParams.edited }); 
+            canvas.requestRenderAll();
+            canvas.fire('palleon:history', { type: 'image', text: palleonParams.edited });
         });
 
         /* Image Flip Y */
         selector.find('#img-flip-vertical').on('click', function() {
             canvas.getActiveObject().toggle('flipY');
-            canvas.requestRenderAll();   
-            canvas.fire('palleon:history', { type: 'image', text: palleonParams.edited }); 
+            canvas.requestRenderAll();
+            canvas.fire('palleon:history', { type: 'image', text: palleonParams.edited });
         });
 
         /* Rounded Corners */
@@ -4340,14 +4340,14 @@
             if ($(this).attr('id') == 'img-border-width') {
                 setValueActiveObject('strokeWidth', val);
             }
-            canvas.requestRenderAll();   
+            canvas.requestRenderAll();
         });
 
         selector.find('#palleon-image-settings input[type=number]').bind('input', function() {
             window.clearTimeout(timeOut);
             timeOut = setTimeout(function(){
                 canvas.fire('palleon:history', { type: 'image', text: palleonParams.edited});
-            }, 500); 
+            }, 500);
         });
 
         /* Image Skew, Rotate, Opacity */
@@ -4613,7 +4613,7 @@
                 shape.scaleToHeight(getScaledSize()[1] / 6);
             }
             canvas.setActiveObject(shape);
-            canvas.requestRenderAll();  
+            canvas.requestRenderAll();
             canvas.fire('palleon:history', { type: val, text: palleonParams.added });
         });
 
@@ -4670,7 +4670,7 @@
             window.clearTimeout(timeOut);
             timeOut = setTimeout(function(){
                 canvas.fire('palleon:history', { type: canvas.getActiveObject().objectType, text: palleonParams.edited});
-            }, 500); 
+            }, 500);
         });
 
          /* FRAMES */
@@ -4816,7 +4816,7 @@
                 svg.set('scaleY', height / svgHeight);
                 svg.set('angle', svgRotate);
             });
-            canvas.requestRenderAll(); 
+            canvas.requestRenderAll();
             canvas.fire('palleon:history', { type: 'frame', text: palleonParams.edited});
         }
 
@@ -4836,7 +4836,7 @@
             $.each(objects, function(index, value) {
                 value.toggle('flipX');
             });
-            canvas.requestRenderAll();  
+            canvas.requestRenderAll();
             canvas.fire('palleon:history', { type: 'frame', text: palleonParams.edited});
         });
 
@@ -4846,7 +4846,7 @@
             $.each(objects, function(index, value) {
                 value.toggle('flipY');
             });
-            canvas.requestRenderAll();  
+            canvas.requestRenderAll();
             canvas.fire('palleon:history', { type: 'frame', text: palleonParams.edited});
         });
 
@@ -5056,14 +5056,14 @@
         /* Custom Element Flip X */
         selector.find('#element-flip-horizontal').on('click', function() {
             canvas.getActiveObject().toggle('flipX');
-            canvas.requestRenderAll();   
+            canvas.requestRenderAll();
             canvas.fire('palleon:history', { type: 'element', text: palleonParams.edited });
         });
 
         /* Custom Element Flip Y */
         selector.find('#element-flip-vertical').on('click', function() {
             canvas.getActiveObject().toggle('flipY');
-            canvas.requestRenderAll();   
+            canvas.requestRenderAll();
             canvas.fire('palleon:history', { type: 'element', text: palleonParams.edited });
         });
 
@@ -5342,20 +5342,20 @@
                 break;
               case 37:  /* Left arrow  */
                   if(canvas.getActiveObject()){
-                    canvas.getActiveObject().left -= 1; 
+                    canvas.getActiveObject().left -= 1;
                     canvas.requestRenderAll();
                   }
                 break;
               case 39:  /* Right arrow  */
                   if(canvas.getActiveObject()){
-                    canvas.getActiveObject().left += 1; 
+                    canvas.getActiveObject().left += 1;
                     canvas.requestRenderAll();
                   }
                 break;
             }
         };
 
-        /* SETTINGS */ 
+        /* SETTINGS */
 
         // CSS Theme Select
         selector.find('#custom-theme').on('change', function() {

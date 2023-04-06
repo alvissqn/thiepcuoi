@@ -2,7 +2,7 @@
 <project version="4">
   <component name="WebServers">
     <option name="servers">
-      <webServer id="fba1974c-73a8-4ecf-8221-3a2692d57ff8" name="thiepcuoi" url="http://103.130.216.216">
+      <webServer id="fba1974c-73a8-4ecf-8221-3a2692d57ff8" name="thiepcuoi" url="http://thiepcuoi.aztech.asia">
         <fileTransfer rootFolder="/domains/thiepcuoi.aztech.asia/public_html" host="103.130.216.216" port="21">
           <advancedOptions>
             <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
