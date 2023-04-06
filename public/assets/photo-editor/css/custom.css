@@ -1,0 +1,272 @@
+/* START: Add by KiemCoder */
+
+#palleon-icon-panel {
+    background: #252627;
+}
+
+button.palleon-icon-menu-btn.active {
+    background: #252627 !important;
+}
+
+.palleon-top-bar-menu .palleon-btn {
+    border-radius: 30px;
+}
+
+#palleon-canvas-page > div{
+    padding-top: 50px;
+}
+
+.palleon-modal-inner>.palleon-tabs>.palleon-tab, .palleon-modal-bg {
+    background: #1e2631;
+}
+.palleon-modal-inner>.palleon-tabs>.palleon-tabs-menu>li {
+    background: #1e1e1e;
+}
+.palleon-modal-inner>.palleon-tabs>.palleon-tabs-menu>li.active {
+    background: #1e2631;
+}
+
+.palleon-colorpicker, .palleon-colorpicker:focus, .palleon-form-field {
+
+}
+
+.disabe-event {
+    cursor: not-allowed !important;
+    pointer-events: none !important;
+}
+
+#palleon-canvas-page > div:last-child{
+    padding-bottom: 50px;
+}
+
+.palleon-canvas-wrap-item .canvas-container{
+    outline: 2px solid transparent;
+    box-shadow: 0 2px 8px rgba(14,19,24,.07);
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='2' height='2'%3E%3Cpath d='M1,0H0V1H2V2H1' fill='%23000000'/%3E%3C/svg%3E") left/15px 15px #333;
+}
+
+.palleon-canvas-wrap-active .canvas-container{
+    outline: 2px solid #8b3dff
+}
+
+#palleon-top-bar {
+    background: linear-gradient(to right, #4b6cb7, #182848) !important;
+    user-select: none;
+}
+
+#palleon-content {
+    background-color: #f0f1f2;
+    max-height: 99vh;
+    overflow-y: scroll;
+    flex-wrap: wrap;
+    user-select: none;
+    padding: 20px;
+    display: block !important;
+}
+
+#palleon-canvas-page {
+    max-height: 100%;
+}
+
+#palleon-btn-add-page {
+    cursor: pointer;
+    text-align: center;
+    margin-bottom: 30px;
+    background-color: #303030;
+    color: #aaa;
+    padding: 5px 30px;
+    font-weight: bold;
+    border-radius: 5px;
+    display: inline-block;
+}
+
+#palleon-btn-add-page .material-icons {
+    vertical-align:middle;
+    font-size: 18px;
+}
+
+.palleon-canvas-item-header {
+    display: flex;
+    padding: 5px 0;
+}
+
+.palleon-canvas-item-page {
+    font-weight: bold;
+    color: #0d1216;
+}
+
+.palleon-canvas-item-name {
+    flex: 1;
+}
+
+.palleon-canvas-item-name input {
+    border: none;
+    outline: none;
+    background: transparent;
+    padding: 5px;
+    width: 100%;
+    font-weight: bold;
+    color: #0081ff;
+}
+
+.palleon-canvas-item-name:hover input {
+    border-bottom: 1px dashed #eaeaea !important;
+}
+
+.palleon-canvas-item-action span {
+    color: #0d1216;
+    cursor: pointer;
+    font-size: 18px;
+    padding: 5px;
+    border-radius: 5px;
+    transition: 0.3s all;
+}
+
+.palleon-canvas-item-action span:hover {
+    color: #ffffff;
+    background: #0081ff;
+}
+
+.sp-original-input-container .sp-add-on {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    pointer-events: none;
+}
+
+.sp-original-input-container input {
+    padding-left: 50px !important;
+}
+
+.palleon-frame, .palleon-element {
+    min-height: 30px !important;
+}
+
+.palleon-layers li {
+    padding-top: 10px;
+    padding-bottom: 35px;
+    height: auto;
+    line-height: unset;
+}
+
+.palleon-layers li .layer-icons {
+    display: block !important;
+    width: 100% !important;
+    height: auto !important;
+    position: absolute;
+    top: auto !important;
+    left: 0;
+    z-index: 9;
+    bottom: 0;
+    padding: 0;
+    padding-top: 1px;
+    background: transparent !important;
+    border-top: 1px dashed #585858;
+    opacity: 0.5;
+}
+
+.palleon-layers li.active .layer-icons,
+.palleon-layers li:hover .layer-icons{
+    opacity: 1;
+}
+
+.palleon-layers li.active {
+    background: #444444
+}
+
+.palleon-layers>li>.material-icons.layer-settings {
+    display: none !important;
+}
+
+.palleon-layers li .layer-icons .material-icons {
+    font-size: 14px !important;
+    line-height: unset !important;
+    height: auto !important;
+    color: #bbbbbb;
+}
+
+.palleon-layers li .layer-name {
+    padding: 0 !important;
+}
+
+.palleon-layers li .layer-icons .layer-hidden,
+.palleon-layers li .layer-icons .layer-locked {
+    color: #ffbb01 !important;
+}
+
+.palleon-layers li .layer-icons .material-icons:hover {
+    opacity: 1 !important;
+    color: #009688 !important;
+}
+
+#modal-loading * {
+    text-align: center;
+}
+
+#modal-loading h3{
+    display: block !important;
+    text-align: center;
+}
+
+#modal-loading .palleon-loader{
+    display: inline-block !important;
+}
+
+#modal-loading .palleon-modal-inner {
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+}
+
+.palleon-modal-inner {
+    position: relative;
+}
+
+.palleon-modal-close {
+    position: absolute;
+    top: 0;
+    right: -20px;
+}
+
+#palleon-canvas-page{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: nowrap;
+    flex-direction: column;
+}
+
+.palleon-canvas-ruler-active .palleon-canvas-container-wrap {
+    padding: 30px 0 0 30px;
+    overflow: hidden;
+    background: #c9c9c9
+}
+
+.rul_wrapper {
+    overflow: unset !important;
+}
+
+.rul_ruler_Vertical,
+.rul_ruler_Horizontal,
+.rul_tracker{
+    margin-left: -22px;
+    margin-top: -22px;
+}
+
+
+.rul_cornerTL {
+    top: -30px !important;
+    left: -30px !important;
+    width: 25px !important;
+    height: 25px !important;
+    background: gray;
+}
+
+.rul_line {
+    border-bottom: 2px solid #00bcff !important;
+    border-left: 2px solid #00bcff !important;
+}
+
+/* END: Add by KiemCoder */
