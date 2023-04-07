@@ -60,6 +60,7 @@ Permission::required($config['permission'], '/');
                 loading: 'Đang tải...',
                 loadmore: 'Tải thêm',
                 saved: 'Đã lưu!',
+                ajaxurl: "https://demo.palleon.website/wp-admin/admin-ajax.php",
                 imgsaved: 'Ảnh đã được lưu.',
                 tempsaved: 'Mẫu đã được lưu.',
                 freeDrawing: 'Vẽ tự do',

@@ -7,6 +7,7 @@
         let arrcanvas = [];
         let canvas_noibo = '';
         var currentCanvasIndex = 0;
+        var selector = $(this);
         $('#palleon').palleon({
             baseURL: "/assets/photo-editor/", // The url of the main directory. For example; "http://www.mysite.com/palleon-js/"
 
@@ -20,7 +21,7 @@
             stroke: '#fff', // Default stroke color
             strokeWidth: 0, // Default stroke width
             textBackgroundColor: 'rgba(255,255,255,0)', // Default text background color
-            textAlign: 'left', // Possible values: "", "left", "center" or "right". 
+            textAlign: 'left', // Possible values: "", "left", "center" or "right".
             lineHeight: 1.2, // Default line height.
             borderColor: '#8b3dff', // Color of controlling borders of an object (when it's active).
             borderDashArray: [4, 4], // Array specifying dash pattern of an object's borders (hasBorder must be true).
@@ -42,63 +43,18 @@
 
                 /**
                  * @see http://fabricjs.com/fabric-intro-part-1#canvas
-                 * You may need to update "lazyLoadInstance" if you are going to populate items of a grid with ajax. 
+                 * You may need to update "lazyLoadInstance" if you are going to populate items of a grid with ajax.
                  * lazyLoadInstance.update();
                  * @see https://github.com/verlok/vanilla-lazyload
                  */
-                /* Page Canvas - Add multi canvas */
-                // selector.find('#test-btn-el').on('click', function() {
-                //     let newIndex = arrcanvas.length;
-                //
-                //     newCanvas(newIndex);
-                // });
-
-                // $('#palleon-canvas-wrap').on('click','.canvas-container',function(){
-                //     var cid = $(this).children('canvas').attr('id');
-                //
-                //     canvas_noibo = fabric.util.getById(cid);
-                //     console.log(canvas_noibo);
-                //     let t = new fabric.IText('CANVAS# 10', {
-                //         top: 10,
-                //         left: 10,
-                //         fontSize: 15,
-                //     });
-                //
-                //     canvas_noibo.add(t);
-                //     canvas_noibo.renderAll();
-                // });
-                // // $('#palleon-canvas-wrap').on('click','.canvas-container',function(){
-                //     var cid = $(this).children('canvas').attr('id');
-                //
-                //     //     let index = parseInt($(this).find("#palleon-canvas-").attr("data-index"));
-                //     //     alert(index);
-                //     //     // Initiate a Canvas instance
-                //     //
-                //     canvas = fabric.util.getById(cid);
-                //     console.log(canvas);
-                //
-                //     let ta = new fabric.Text('Hello Word', {
-                //         top: 102,
-                //         left: 102,
-                //         fontSize: 15,
-                //     });
-                //
-                //     canvas.add(ta);
-                //     canvas.renderAll();
-                //     //     canvases[index] = canvas;
-                //     //     bindCanvas(canvas);
-                //     //
-                // })
-
-
 
                 /* Template - Add to Favorite */
                 selector.find('.template-grid').on('click','.template-favorite button.star',function(){
                     var button = $(this);
                     var templateid = button.data('templateid');
-                    
+
                     /* Do what you want */
-                    
+
                     toastr.success("To make 'saving functions' work, you should have a database on your server and integrate it to palleon using a server-side language. See Documentation -> Integration.", "Info");
                     // toastr.error("Error!", "Lorem ipsum dolor");
                 });
@@ -107,7 +63,7 @@
                 selector.find('.palleon-frames-grid').on('click','.frame-favorite button.star',function(){
                     var button = $(this);
                     var frameid = button.data('frameid');
-                    
+
                     /* Do what you want */
 
                     toastr.success("To make 'saving functions' work, you should have a database on your server and integrate it to palleon using a server-side language. See Documentation -> Integration.", "Info");
@@ -118,7 +74,7 @@
                 selector.find('.palleon-grid').on('click','.element-favorite button.star',function(){
                     var button = $(this);
                     var elementid = button.data('elementid');
-                    
+
                     /* Do what you want */
 
                     toastr.success("To make 'saving functions' work, you should have a database on your server and integrate it to palleon using a server-side language. See Documentation -> Integration.", "Info");
@@ -219,9 +175,60 @@
                  * @see http://fabricjs.com/docs/fabric.Canvas.html#toDataURL
                  */
 
-                // var name = selector.find('#palleon-json-save-name').val();
-                
-                console.log(template);
+                var name = selector.find('#palleon-json-save-name').val();
+                console.log(JSON.stringify(template));
+                var date_time = (new Date).getTime();
+                var fdata = new FormData;
+                fdata.append('name',name);
+                fdata.append('filename',date_time);
+                fdata.append('json',JSON.stringify(template));
+                fdata.append('action','saveJson');
+                $.ajax({
+                    url: palleonParams.ajaxurl,
+                    type: "POST",
+                    contentType: 'application/json',
+                    processData: false,
+                    data: fdata,
+                    success: function(){
+                        selector.find("#palleon-my-templates-refresh").trigger("click");
+                        toastr.success(palleonParams.tempsaved, palleonParams.success);
+                        selector.find(".palleon-modal").hide();
+                    }
+
+                })
+                // var a = (new Date).getTime()
+                //     , n = t.find("#palleon-json-save-name").val()
+                //     , l = u.toJSON(["objectType", "gradientFill", "roundedCorders", "mode", "selectable", "lockMovementX", "lockMovementY", "lockRotation", "crossOrigin", "layerName"]);
+                // F(l.backgroundImage.src, function(o) {
+                //     l.backgroundImage.src = o;
+                //     var i = JSON.stringify(l)
+                //         , r = new FormData;
+                //     r.append("name", n),
+                //         r.append("filename", a),
+                //         r.append("json", i),
+                //         r.append("action", "saveJson"),
+                //         r.append("nonce", palleonParams.nonce),
+                //         e.ajax({
+                //             url: palleonParams.ajaxurl,
+                //             type: "POST",
+                //             contentType: !1,
+                //             processData: !1,
+                //             cache: !1,
+                //             data: r,
+                //             success: function() {
+                //                 t.find("#palleon-my-templates-refresh").trigger("click"),
+                //                     toastr.success(palleonParams.tempsaved, palleonParams.success),
+                //                     t.find(".palleon-modal").hide()
+                //             },
+                //             error: function(e, a, n) {
+                //                 e.status && 400 == e.status ? toastr.error(e.responseText, palleonParams.error) : toastr.error(palleonParams.wrong, palleonParams.error)
+                //             }
+                //         })
+                // })
+
+                console.log(palleonParams.ajaxurl);
+
+                // console.log(template);
 
                 /* Do what you want */
 
@@ -240,7 +247,7 @@
                 // var name = selector.find('#palleon-save-img-name').val();
                 // var quality = parseFloat(selector.find('#palleon-save-img-quality').val());
                 // var format = selector.find('#palleon-save-img-format').val();
-                
+
                 console.log(imgData);
 
                 /* Do what you want */
