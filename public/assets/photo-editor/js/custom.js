@@ -176,26 +176,31 @@
                  */
 
                 var name = selector.find('#palleon-json-save-name').val();
-                console.log(JSON.stringify(template));
-                var date_time = (new Date).getTime();
-                var fdata = new FormData;
-                fdata.append('name',name);
-                fdata.append('filename',date_time);
-                fdata.append('json',JSON.stringify(template));
-                fdata.append('action','saveJson');
-                $.ajax({
-                    url: palleonParams.ajaxurl,
-                    type: "POST",
-                    contentType: 'application/json',
-                    processData: false,
-                    data: fdata,
-                    success: function(){
-                        selector.find("#palleon-my-templates-refresh").trigger("click");
-                        toastr.success(palleonParams.tempsaved, palleonParams.success);
-                        selector.find(".palleon-modal").hide();
-                    }
 
-                })
+                // console.log(JSON.stringify(template));
+                var date_time = (new Date).getTime();
+                var dulieu = new FormData;
+                console.log(dulieu);
+                // // dulieu.append('name',name);
+                // dulieu.append('filename',date_time);
+                // dulieu.append('json',JSON.stringify(template));
+                // // dulieu.append('action','saveJson');
+                // $.ajax({
+                //     url: palleonParams.ajaxurl,
+                //     headers: palleonParams.token,
+                //     data: dulieu,
+                //     type: 'POST',
+                //     dataType: 'json',
+                //     success: function(){
+                //         selector.find("#palleon-my-templates-refresh").trigger("click");
+                //         toastr.success(palleonParams.tempsaved, palleonParams.success);
+                //         selector.find(".palleon-modal").hide();
+                //     },
+                //     error: function(){
+                //         console.log("error");
+                //     }
+                //
+                // })
                 // var a = (new Date).getTime()
                 //     , n = t.find("#palleon-json-save-name").val()
                 //     , l = u.toJSON(["objectType", "gradientFill", "roundedCorders", "mode", "selectable", "lockMovementX", "lockMovementY", "lockRotation", "crossOrigin", "layerName"]);
@@ -226,7 +231,7 @@
                 //         })
                 // })
 
-                console.log(palleonParams.ajaxurl);
+                // console.log(palleonParams.ajaxurl);
 
                 // console.log(template);
 

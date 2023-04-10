@@ -32,4 +32,13 @@ class ToolsController extends Controller{
         $data =[];
         return view('pages.admin.tools.editor-image',$data);
     }
+
+    public function save_json_editor(Request $request){
+        dd($request->filename);
+//        $filename = $request->filename .'.json';
+//        $json = stripslashes($request->json);
+//        $upload_path = public_path('files/template/');
+//        $upload_file = file_put_contents( $upload_path . $filename, $json );
+//        return response()->json($upload_file,'200');
+    }
 }

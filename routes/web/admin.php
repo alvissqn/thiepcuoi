@@ -267,7 +267,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function(){
 
         Route::post('editor-savejson',[
            'as' => 'admin.tools.savejson',
-           'uses' => 'Admin\ToolsController@editor_savejson'
+           'uses' => 'Admin\ToolsController@save_json_editor'
         ]);
 	}); // Group: tools
 
