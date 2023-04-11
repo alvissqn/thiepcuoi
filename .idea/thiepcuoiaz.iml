@@ -108,5 +108,6 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="work" />
+    <orderEntry type="module" module-name="palleon" />
   </component>
 </module>

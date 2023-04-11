@@ -50,7 +50,7 @@ Permission::required($config['permission'], '/');
         <script src="/assets/photo-editor/js/addons/aligning_guidelines.js"></script>
         <script src="/assets/photo-editor/js/plugins.min.js"></script>
         <script src="/assets/photo-editor/js/palleon.js"></script>
-        <script src="/assets/photo-editor/js/custom.js"></script>
+
         <!-- Translation Strings -->
         <script>
             /* <![CDATA[ */
@@ -98,6 +98,7 @@ Permission::required($config['permission'], '/');
             };
             /* ]]> */
         </script>
+        <script src="/assets/photo-editor/js/custom.js"></script>
         <!-- Scripts END -->
         @show
     </body>

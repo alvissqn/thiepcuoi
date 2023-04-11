@@ -180,56 +180,33 @@
                 // console.log(JSON.stringify(template));
                 var date_time = (new Date).getTime();
                 var dulieu = new FormData;
-                console.log(dulieu);
-                // // dulieu.append('name',name);
-                // dulieu.append('filename',date_time);
-                // dulieu.append('json',JSON.stringify(template));
-                // // dulieu.append('action','saveJson');
-                // $.ajax({
-                //     url: palleonParams.ajaxurl,
-                //     headers: palleonParams.token,
-                //     data: dulieu,
-                //     type: 'POST',
-                //     dataType: 'json',
-                //     success: function(){
-                //         selector.find("#palleon-my-templates-refresh").trigger("click");
-                //         toastr.success(palleonParams.tempsaved, palleonParams.success);
-                //         selector.find(".palleon-modal").hide();
-                //     },
-                //     error: function(){
-                //         console.log("error");
-                //     }
-                //
-                // })
-                // var a = (new Date).getTime()
-                //     , n = t.find("#palleon-json-save-name").val()
-                //     , l = u.toJSON(["objectType", "gradientFill", "roundedCorders", "mode", "selectable", "lockMovementX", "lockMovementY", "lockRotation", "crossOrigin", "layerName"]);
-                // F(l.backgroundImage.src, function(o) {
-                //     l.backgroundImage.src = o;
-                //     var i = JSON.stringify(l)
-                //         , r = new FormData;
-                //     r.append("name", n),
-                //         r.append("filename", a),
-                //         r.append("json", i),
-                //         r.append("action", "saveJson"),
-                //         r.append("nonce", palleonParams.nonce),
-                //         e.ajax({
-                //             url: palleonParams.ajaxurl,
-                //             type: "POST",
-                //             contentType: !1,
-                //             processData: !1,
-                //             cache: !1,
-                //             data: r,
-                //             success: function() {
-                //                 t.find("#palleon-my-templates-refresh").trigger("click"),
-                //                     toastr.success(palleonParams.tempsaved, palleonParams.success),
-                //                     t.find(".palleon-modal").hide()
-                //             },
-                //             error: function(e, a, n) {
-                //                 e.status && 400 == e.status ? toastr.error(e.responseText, palleonParams.error) : toastr.error(palleonParams.wrong, palleonParams.error)
-                //             }
-                //         })
-                // })
+
+                dulieu.append('name',name);
+                dulieu.append('filename',date_time);
+                dulieu.append('json',template);
+                dulieu.append('action','saveJson');
+                for (var data of dulieu) {
+                    console.log(data);
+                }
+                $.ajax({
+                    url: palleonParams.ajaxurl,
+                    headers: palleonParams.token,
+                    data: dulieu,
+                    type: 'POST',
+                    dataType: 'json',
+                    processData: false,
+                    contentType: false,
+                    success: function(data){
+                        console.log(data);
+                        selector.find("#palleon-my-templates-refresh").trigger("click");
+                        toastr.success(palleonParams.tempsaved, palleonParams.success);
+                        selector.find(".palleon-modal").hide();
+                    },
+                    error: function(){
+                        toastr.success("Để 'các chức năng lưu' hoạt động, bạn nên có một cơ sở dữ liệu trên máy chủ của mình và tích hợp nó vào palleon bằng ngôn ngữ phía máy chủ. Xem Tài liệu -> Tích hợp.", "Info");
+                    }
+                });
+
 
                 // console.log(palleonParams.ajaxurl);
 
@@ -237,7 +214,7 @@
 
                 /* Do what you want */
 
-                toastr.success("To make 'saving functions' work, you should have a database on your server and integrate it to palleon using a server-side language. See Documentation -> Integration.", "Info");
+
                 // toastr.error("Error!", "Lorem ipsum dolor");
             },
 

@@ -3,7 +3,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Permission;
+//use Permission;
 
 class ToolsController extends Controller{
 
@@ -34,11 +34,13 @@ class ToolsController extends Controller{
     }
 
     public function save_json_editor(Request $request){
-        dd($request->filename);
-//        $filename = $request->filename .'.json';
-//        $json = stripslashes($request->json);
-//        $upload_path = public_path('files/template/');
-//        $upload_file = file_put_contents( $upload_path . $filename, $json );
-//        return response()->json($upload_file,'200');
+        $filename = $request->name .'.json';
+        $json = stripslashes($request->json);
+        $upload_path = public_path('files/template/');
+        $upload_file = file_put_contents( $upload_path . $filename, $json );
+
+
+
+        return response()->json($upload_file,'200');
     }
 }
