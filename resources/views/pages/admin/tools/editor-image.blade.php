@@ -14040,48 +14040,29 @@
                                         class="palleon-template-list template-selection paginated"
                                         data-perpage="10"
                                 >
-                                    <li data-keyword="my template 1">
-                                        <div>Mẫu 1</div>
+                                    @foreach($data as $item)
+                                    <li data-keyword="{{$item->name}}">
+                                        <div>{{$item->name}}</div>
                                         <div>
                                             <button
-                                                    type="button"
-                                                    class="palleon-btn primary palleon-select-template"
-                                                    data-json="/assets/photo-editor/files/templates/json/1.json"
+                                                type="button"
+                                                class="palleon-btn primary palleon-select-template"
+                                                data-json="{{ asset($item->link_json) }}"
                                             >
                                                 <span class="material-icons">check</span>
                                                 Chọn
                                             </button>
                                             <button
-                                                    type="button"
-                                                    class="palleon-btn danger palleon-template-delete"
-                                                    data-target="/assets/photo-editor/files/templates/json/1.json"
+                                                type="button"
+                                                class="palleon-btn danger palleon-template-delete"
+                                                data-target="{{ asset($item->link_json) }}"
                                             >
                                                 <span class="material-icons">clear</span>
                                                 XÓa
                                             </button>
                                         </div>
                                     </li>
-                                    <li data-keyword="my template 2">
-                                        <div>Mẫu 2</div>
-                                        <div>
-                                            <button
-                                                    type="button"
-                                                    class="palleon-btn primary palleon-select-template"
-                                                    data-json="/assets/photo-editor/files/templates/json/2.json"
-                                            >
-                                                <span class="material-icons">check</span>
-                                                Chọn
-                                            </button>
-                                            <button
-                                                    type="button"
-                                                    class="palleon-btn danger palleon-template-delete"
-                                                    data-target="/assets/photo-editor/files/templates/json/1.json"
-                                            >
-                                                <span class="material-icons">clear</span>
-                                                Xóa
-                                            </button>
-                                        </div>
-                                    </li>
+                                    @endforeach
                                 </ul>
                                 <div id="palleon-my-templates-noimg" class="notice notice-warning d-none">
                                     Không tìm thấy.

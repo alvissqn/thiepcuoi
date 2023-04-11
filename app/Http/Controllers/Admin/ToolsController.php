@@ -2,7 +2,9 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\User;
 use Illuminate\Http\Request;
+use App\UserTemplate;
 //use Permission;
 
 class ToolsController extends Controller{
@@ -29,18 +31,22 @@ class ToolsController extends Controller{
      * Trình sửa ảnh
      */
     public function editor_image(){
-        $data =[];
-        return view('pages.admin.tools.editor-image',$data);
+        $data = new UserTemplate;
+        return view('pages.admin.tools.editor-image',['data' => $data::all()]);
     }
 
     public function save_json_editor(Request $request){
         $filename = $request->name .'.json';
         $json = stripslashes($request->json);
-        $upload_path = public_path('files/template/');
-        $upload_file = file_put_contents( $upload_path . $filename, $json );
+        $upload_path = '/files/template/';
+        $upload_file = file_put_contents( public_path($upload_path.$filename), $json );
+
+        $template = new UserTemplate();
+        $template->name = $filename;
+        $template->link_json = $upload_path.$filename;
+        $template->save();
 
 
-
-        return response()->json($upload_file,'200');
+        return response()->json(['result'=>"thành công",'status_code'=>'200']);
     }
 }

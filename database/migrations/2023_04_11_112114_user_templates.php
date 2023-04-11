@@ -14,10 +14,12 @@ class UserTemplates extends Migration
     public function up()
     {
         Schema::create('user_templates', function (Blueprint $table) {
-            $table->string('name')->unique(); // Tên option
-            $table->longText('value')->nullable(); // Giá trị
-            $table->string('group_name')->nullable(); // Tên nhóm
-            $table->tinyInteger('is_array'); // Dữ liệu là array hay không
+            $table->increments('templateid');
+            $table->string('name')->unique(); // Tên template
+            $table->string('link_json')->nullable(); // link
+            $table->string('thumbnail')->nullable(); // Hình thumb
+            $table->integer('userid')->nullable(); //id user
+            $table->timestamps();
         });
     }
 
@@ -28,6 +30,6 @@ class UserTemplates extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('user_templates');
     }
 }
