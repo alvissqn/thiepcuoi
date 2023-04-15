@@ -269,6 +269,11 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function(){
            'as' => 'admin.tools.savejson',
            'uses' => 'Admin\ToolsController@save_json_editor'
         ]);
+
+        Route::post('editor-savelibrary',[
+            'as' => 'admin.tools.savelibrary',
+            'uses' => 'Admin\Toolscontroller@save_image_library)'
+        ]);
 	}); // Group: tools
 
 	// Quản lý file

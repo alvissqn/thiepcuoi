@@ -45,8 +45,14 @@ class ToolsController extends Controller{
         $template->name = $filename;
         $template->link_json = $upload_path.$filename;
         $template->save();
-
-
         return response()->json(['result'=>"thành công",'status_code'=>'200']);
     }
+
+    public function save_image_library(Request $request){
+        return $request->file('file');
+//        $path = $request->file('file')->store('avatars');
+
+//        return $path;
+    }
+
 }
