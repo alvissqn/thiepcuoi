@@ -63,6 +63,7 @@ Permission::required($config['permission'], '/');
                 token: '{!! csrf_token() !!}',
                 ajaxurl: "{!! route('admin.tools.savejson') !!}",
                 libraryurl: "{!! route('admin.tools.savelibrary') !!}",
+                favoriteurl: "{!! route('admin.tools.savetemplatefavorite') !!}",
                 imgsaved: 'Ảnh đã được lưu.',
                 tempsaved: 'Mẫu đã được lưu.',
                 freeDrawing: 'Vẽ tự do',

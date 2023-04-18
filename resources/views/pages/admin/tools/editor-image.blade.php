@@ -12818,11 +12818,39 @@
                                              class="notice notice-warning d-none">
                                             Không tìm thấy.
                                         </div>
+
                                         <div
                                                 id="palleon-templates-grid"
                                                 class="palleon-grid template-grid template-selection paginated"
                                                 data-perpage="21"
                                         >
+                                            @foreach($data as $template)
+                                                <div class="grid-item" data-keyword="Blog Banner - 2240x1260px"
+                                                     data-category="blog-banners">
+                                                    <div class="template-favorite">
+                                                        <button type="button" class="palleon-btn-simple star"
+                                                                data-templateid="{{$template->templateid}}">
+                                                            <span class="material-icons">star_border</span>
+                                                        </button>
+                                                    </div>
+                                                    <div
+                                                        class="palleon-masonry-item-inner palleon-select-template"
+                                                        data-json="/assets/photo-editor/files/templates/json/25.json"
+                                                    >
+                                                        <div class="palleon-img-wrap">
+                                                            <div class="palleon-img-loader"></div>
+                                                            <img
+                                                                class="lazy"
+                                                                data-src="/assets/photo-editor/files/templates/img/25.jpg"
+                                                                title="Blog Banner - 2240x1260px"
+                                                            />
+                                                        </div>
+                                                        <div class="palleon-masonry-item-desc">Blog Banner -
+                                                            2240x1260px
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            @endforeach
                                             <div class="grid-item" data-keyword="Blog Banner - 2240x1260px"
                                                  data-category="blog-banners">
                                                 <div class="template-favorite">
@@ -13972,55 +14000,30 @@
                             <div id="palleon-templates-favorites" class="palleon-tab">
                                 <div class="palleon-grid template-grid template-selection paginated"
                                      data-perpage="21">
-                                    <div class="grid-item" data-keyword="Blog Banner - 2240x1260px"
-                                         data-category="blog-banners">
-                                        <div class="template-favorite">
-                                            <button type="button" class="palleon-btn-simple star"
-                                                    data-templateid="">
-                                                <span class="material-icons">star</span>
-                                            </button>
-                                        </div>
-                                        <div
+
+                                    @foreach($favorite as $templfavorite)
+                                        <div class="grid-item" data-keyword="Blog Banner - 2240x1260px"
+                                             data-category="blog-banners">
+                                            <div class="template-favorite">
+                                                <button type="button" class="palleon-btn-simple star favorited"
+                                                        data-templateid="">
+                                                    <span class="material-icons">star</span>
+                                                </button>
+                                            </div>
+                                            <div
                                                 class="palleon-masonry-item-inner palleon-select-template"
-                                                data-json="/assets/photo-editor/files/templates/json/25.json"
-                                        >
-                                            <div class="palleon-img-wrap">
-                                                <div class="palleon-img-loader"></div>
-                                                <img class="lazy" data-src="/assets/photo-editor/files/templates/img/25.jpg"
-                                                     title="Blog Banner - 2240x1260px"/>
-                                            </div>
-                                            <div class="palleon-masonry-item-desc">Blog Banner - 2240x1260px
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div
-                                            class="grid-item"
-                                            data-keyword="Modern Collage - 2 Photos - 2000x1300px"
-                                            data-category="collage"
-                                    >
-                                        <div class="template-favorite">
-                                            <button type="button" class="palleon-btn-simple star"
-                                                    data-templateid="">
-                                                <span class="material-icons">star</span>
-                                            </button>
-                                        </div>
-                                        <div
-                                                class="palleon-masonry-item-inner palleon-select-template"
-                                                data-json="/assets/photo-editor/files/templates/json/20.json"
-                                        >
-                                            <div class="palleon-img-wrap">
-                                                <div class="palleon-img-loader"></div>
-                                                <img
-                                                        class="lazy"
-                                                        data-src="/assets/photo-editor/files/templates/img/20.jpg"
-                                                        title="Modern Collage - 2 Photos - 2000x1300px"
-                                                />
-                                            </div>
-                                            <div class="palleon-masonry-item-desc">Modern Collage - 2 Photos -
-                                                2000x1300px
+                                                data-json="{{ asset($templfavorite->link_json) }}"
+                                            >
+                                                <div class="palleon-img-wrap">
+                                                    <div class="palleon-img-loader"></div>
+                                                    <img class="lazy" data-src="/assets/photo-editor/files/templates/img/25.jpg"
+                                                         title="Blog Banner - 2240x1260px"/>
+                                                </div>
+                                                <div class="palleon-masonry-item-desc">{!! $templfavorite->name !!}
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    @endforeach
                                 </div>
                             </div>
                             <div id="palleon-templates-saved" class="palleon-tab">

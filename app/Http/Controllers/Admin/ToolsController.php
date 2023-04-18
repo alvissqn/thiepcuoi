@@ -32,27 +32,39 @@ class ToolsController extends Controller{
      */
     public function editor_image(){
         $data = new UserTemplate;
-        return view('pages.admin.tools.editor-image',['data' => $data::all()]);
+        $temp_favorite = UserTemplate::where('favorite','=',1)->get();
+        return view('pages.admin.tools.editor-image',['data' => $data::all(),'favorite' => $temp_favorite]);
     }
 
     public function save_json_editor(Request $request){
-        $filename = $request->name .'.json';
+        $filename = vnStrFilter($request->name,'_') .'.json';
+        $thubmnail_file = vnStrFilter($request->name,'_') .'.jpg';
         $json = stripslashes($request->json);
         $upload_path = '/files/template/';
+        $thumbnail_path = '/files/thumbnail/';
         $upload_file = file_put_contents( public_path($upload_path.$filename), $json );
-
+        $thumbnail_file = file_put_contents(public_path($thumbnail_path.$filename));
         $template = new UserTemplate();
-        $template->name = $filename;
+        $template->name = $request->name;
         $template->link_json = $upload_path.$filename;
         $template->save();
         return response()->json(['result'=>"thành công",'status_code'=>'200']);
     }
 
-    public function save_image_library(Request $request){
-        return $request->file('file');
-//        $path = $request->file('file')->store('avatars');
+    public function save_template_favorite(Request $request){
+        $idTemplate = $request->templateid;
+        if($request->status == 'remove'){
+            UserTemplate::where('templateid',$idTemplate)->update(['favorite'=>0]);
+            return response()->json(['result' => 'Hủy yêu thích thành công']);
+        } else {
+            UserTemplate::where('templateid',$idTemplate)->update(['favorite'=>1]);
+            return response()->json(['result' => 'Thêm yêu thích thành công']);
+        }
+    }
 
-//        return $path;
+    public function save_image_library(Request $request){
+        $path = $request->file('file')->store('library');
+        return response()->json(['result' => 'Upload Thành Công', 'path_image' => $path]);
     }
 
 }

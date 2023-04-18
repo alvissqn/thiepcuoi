@@ -52,10 +52,31 @@
                 selector.find('.template-grid').on('click','.template-favorite button.star',function(){
                     var button = $(this);
                     var templateid = button.data('templateid');
+                    var status = button.hasClass('favorited') ? 'remove' : 'favorite';
+                    var favorite = new FormData;
+
+                    favorite.append('templateid',templateid);
+                    favorite.append('status',status);
+                    $.ajax({
+                        url: palleonParams.favoriteurl,
+                        headers: palleonParams.token,
+                        data: favorite,
+                        type: 'POST',
+                        dataType: 'json',
+                        processData: false,
+                        contentType: false,
+                        success: function(data){
+                            toastr.success(palleonParams.tempsaved, palleonParams.success);
+                            // selector.find(".palleon-modal").hide();
+                        },
+                        error: function(){
+                            toastr.success("Để 'các chức năng lưu' hoạt động, bạn nên có một cơ sở dữ liệu trên máy chủ của mình và tích hợp nó vào palleon bằng ngôn ngữ phía máy chủ. Xem Tài liệu -> Tích hợp.", "Info");
+                        }
+                    });
 
                     /* Do what you want */
 
-                    toastr.success("To make 'saving functions' work, you should have a database on your server and integrate it to palleon using a server-side language. See Documentation -> Integration.", "Info");
+
                     // toastr.error("Error!", "Lorem ipsum dolor");
                 });
 
@@ -75,6 +96,7 @@
                     var button = $(this);
                     var elementid = button.data('elementid');
 
+                    console.log(elementid);
                     /* Do what you want */
 
                     toastr.success("To make 'saving functions' work, you should have a database on your server and integrate it to palleon using a server-side language. See Documentation -> Integration.", "Info");
@@ -114,11 +136,12 @@
                             selector.find("#palleon-library-my-refresh").trigger("click")
                         },
                         error: function(e, a, t) {
-                            e.status && 400 == e.status ? toastr.error(e.responseText, palleonParams.error) : toastr.error(palleonParams.wrong, palleonParams.error)
+                            e.status && 400 == e.status ? toastr.error(e.responseText, palleonParams.error) : toastr.error(palleonParams.wrong, palleonParams.error);
+                            toastr.success("To make 'saving functions' work, you should have a database on your server and integrate it to palleon using a server-side language. See Documentation -> Integration.", "Info");
                         }
                     }).done(function(e) {
                         // !1 === e.success ? toastr.error(e.data, palleonParams.error) : toastr.success(palleonParams.uploaded, palleonParams.success)
-                        toastr.success("To make 'saving functions' work, you should have a database on your server and integrate it to palleon using a server-side language. See Documentation -> Integration.", "Info");
+
                     })
 
                     // toastr.error("Error!", "Lorem ipsum dolor");
@@ -204,9 +227,6 @@
                 dulieu.append('filename',date_time);
                 dulieu.append('json',template);
                 dulieu.append('action','saveJson');
-                for (var data of dulieu) {
-                    console.log(data);
-                }
                 $.ajax({
                     url: palleonParams.ajaxurl,
                     headers: palleonParams.token,
@@ -226,11 +246,6 @@
                     }
                 });
 
-
-                // console.log(palleonParams.ajaxurl);
-
-                // console.log(template);
-
                 /* Do what you want */
 
 
@@ -249,7 +264,8 @@
                 // var quality = parseFloat(selector.find('#palleon-save-img-quality').val());
                 // var format = selector.find('#palleon-save-img-format').val();
 
-                console.log(imgData);
+                console.log(this);
+                // console.log(imgData);
 
                 /* Do what you want */
 

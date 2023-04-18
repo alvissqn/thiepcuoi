@@ -272,7 +272,11 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function(){
 
         Route::post('editor-savelibrary',[
             'as' => 'admin.tools.savelibrary',
-            'uses' => 'Admin\Toolscontroller@save_image_library)'
+            'uses' => 'Admin\ToolsController@save_image_library'
+        ]);
+        Route::post('editor-favorite',[
+            'as' => 'admin.tools.savetemplatefavorite',
+            'uses' => 'Admin\ToolsController@save_template_favorite'
         ]);
 	}); // Group: tools
 
@@ -287,7 +291,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function(){
 
 	}); // Group: file-manager
 
-    Route::group(['prefix' => 'templates'],function(){
+    Route::group(['prefix' => 'template'],function(){
 
         Route::get('list-template',[
             'as' => 'admin.template',
