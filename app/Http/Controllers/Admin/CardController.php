@@ -1,6 +1,7 @@
 <?php
 namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
+use App\UserTemplate;
 use Illuminate\Http\Request;
 use App\User;
 use Permission, Auth;
@@ -8,7 +9,8 @@ use Permission, Auth;
 class CardController extends Controller{
     public function index(){
         //Permission::required('admin');
-        $data = [];
-        return view('pages.admin.tools.logs',$data);
+        $data = new UserTemplate();
+        return view('pages.admin.template.list-template',['data' => $data::all()]);
     }
+
 }

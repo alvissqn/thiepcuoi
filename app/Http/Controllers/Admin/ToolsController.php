@@ -22,7 +22,7 @@ class ToolsController extends Controller{
 	 * Lịch sử thao tác
 	 */
 	public function logs(){
-		Permission::required('admin');
+		//Permission::required('admin');
 		$data = [];
 		return view('pages.admin.tools.logs', $data);
 	}
