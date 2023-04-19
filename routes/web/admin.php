@@ -297,6 +297,10 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function(){
             'as' => 'admin.template',
             'uses' => 'Admin\CardController@index'
         ]);
+        Route::get('add-template',[
+           'as' => 'admin.add_template',
+           'uses' => 'Admin\CardController@create'
+        ]);
     }); // Group: Template
 
 }); // Group: admin

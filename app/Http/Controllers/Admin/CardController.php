@@ -13,4 +13,9 @@ class CardController extends Controller{
         return view('pages.admin.template.list-template',['data' => $data::all()]);
     }
 
+    public function create(){
+        $data = [];
+        return view('pages.admin.template.add-template',['data' => $data]);
+    }
+
 }

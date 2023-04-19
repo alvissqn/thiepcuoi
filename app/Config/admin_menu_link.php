@@ -223,6 +223,14 @@ return [
                 'permission' => 'admin',
                 'load_js_language' => []
             ],
+            'add-template'  => [
+                'label'     => 'Thêm mẫu thiệp',
+                'count'     => 0,
+                'count_style'   => 'warning',
+                'hidden'    => false,
+                'permission'    => 'admin',
+                'load_js_language'  => []
+            ],
         ]
     ],
 ];
