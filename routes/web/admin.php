@@ -301,6 +301,11 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function(){
            'as' => 'admin.add_template',
            'uses' => 'Admin\CardController@create'
         ]);
+
+        Route::post('add-template',[
+            'as' => 'admin.save_template',
+            'uses' => 'Admin\CardController@store'
+        ]);
     }); // Group: Template
 
 }); // Group: admin
