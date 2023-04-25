@@ -278,6 +278,11 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function(){
             'as' => 'admin.tools.savetemplatefavorite',
             'uses' => 'Admin\ToolsController@save_template_favorite'
         ]);
+
+        Route::get('get-media/{iduser?}/{filetype?}',[
+           'as' => 'admin.tools.library',
+           'uses'  => 'Admin\ToolsController@getLibrary'
+        ]);
 	}); // Group: tools
 
 	// Quản lý file

@@ -3,8 +3,10 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\User;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 use App\UserTemplate;
+use App\LibraryMedia;
 //use Permission;
 
 class ToolsController extends Controller{
@@ -63,8 +65,37 @@ class ToolsController extends Controller{
     }
 
     public function save_image_library(Request $request){
-        $path = $request->file('file')->store('library');
+        $validator = Validator::make($request->all(), [
+            'file' => 'required|mimes:jpeg,png,svg',
+        ]);
+        $media = new LibraryMedia();
+        if ($validator->fails()) {
+            return response()->json(['error' => $validator->errors()], 404);
+        }
+        $file = $request->file('file');
+        $fileName = $file->getClientOriginalName();
+        $path = $file->storeas('library',$fileName);
+        $media->filename = $fileName;
+        $media->linkfile = $path;
+        $media->filetype = $file->getClientOriginalExtension();
+        $media->save();
         return response()->json(['result' => 'Upload Thành Công', 'path_image' => $path]);
+    }
+
+    public function getLibrary($iduser = null,$filetype = ""){
+//        $path_library = '../storage/app/library/*';
+//        $file_json = glob_recursive($path_library);
+//        return response()->json(['result' => $file_json]);
+       if(empty($filetype)){
+           $data = LibraryMedia::all();
+       } else {
+           $data = LibraryMedia::Where('filetype','=',$filetype)->get();
+       }
+       return response()->json(['result' => $data]);
+    }
+
+    public function save_sticker(Request $request){
+
     }
 
 }

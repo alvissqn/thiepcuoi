@@ -124,7 +124,6 @@
                     /* Do what you want */
                     data_f.append("file", file_data);
                     data_f.append("action", "uploadImgToLibrary");
-                    console.log(data_f);
                     $.ajax({
                         url: palleonParams.libraryurl,
                         type: "POST",
@@ -165,9 +164,30 @@
                 selector.find('#palleon-svg-library-upload-img').on('change', function (e) {
                     var file_data = this.files[0];
 
+                    var data_f = new FormData();
                     /* Do what you want */
+                    data_f.append("file", file_data);
+                    data_f.append("action", "uploadSvgToLibrary");
 
-                    toastr.success("To make 'saving functions' work, you should have a database on your server and integrate it to palleon using a server-side language. See Documentation -> Integration.", "Info");
+                    $.ajax({
+                        url: palleonParams.libraryurl,
+                        type: "POST",
+                        processData: false,
+                        contentType: false,
+                        headers: palleonParams.token,
+                        data: data_f,
+                        success: function(e) {
+                            selector.find("#palleon-library-my-refresh").trigger("click")
+                        },
+                        error: function(e, a, t) {
+                            e.status && 400 == e.status ? toastr.error(e.responseText, palleonParams.error) : toastr.error(palleonParams.wrong, palleonParams.error);
+                            toastr.success("To make 'saving functions' work, you should have a database on your server and integrate it to palleon using a server-side language. See Documentation -> Integration.", "Info");
+                        }
+                    }).done(function(e) {
+                        // !1 === e.success ? toastr.error(e.data, palleonParams.error) : toastr.success(palleonParams.uploaded, palleonParams.success)
+
+                    })
+
                     // toastr.error("Error!", "Lorem ipsum dolor");
                 });
 
@@ -208,7 +228,29 @@
                     // toastr.error("Error!", "Lorem ipsum dolor");
 
                 });
+
+                selector.find('#modal-svg-library .palleon-tabs-menu').on('click','li',function(){
+                    var idTarget = $(this).data('target');
+                    getLibrary();
+                });
+                function getLibrary(){
+                    $.ajax({
+                        type: 'GET',
+                        crossDomain: true,
+                        dataType: 'json',
+                        url: 'http://thiepcuoi.com/admin/tools/get-library',
+                        success: function(jsondata){
+                            $.each(jsondata['result'], function(key,value) {
+                                $('.palleon-grid').append("<div class='palleon-masonry-item' >");
+
+                            });
+                        }
+                    })
+
+                }
             },
+
+
 
             //////////////////////* SAVE TEMPLATE *//////////////////////
             saveTemplate: function(template) {

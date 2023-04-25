@@ -14,7 +14,7 @@
                     <div class="row align-items-center mr-0 ml-0">
                         <div class="col-12 col-md-8">
                             <h4 class="card-header">
-                                Danh sách thành viên
+                                Danh sách mẫu thiệp
                             </h4>
                         </div>
                         <div class="col-12 col-md-4 text-right">
