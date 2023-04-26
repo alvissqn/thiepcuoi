@@ -283,6 +283,14 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function(){
            'as' => 'admin.tools.library',
            'uses'  => 'Admin\ToolsController@getLibrary'
         ]);
+        Route::get('design/{templateuid?}',[
+            'as' => 'admin.tools.sharelink',
+            'uses' => 'Admin\ToolsController@shareLinkTemplate'
+        ]);
+        Route::post('general-linkshare',[
+            'as' => 'admin.tools.general_link',
+            'uses' => 'Admin\ToolsController@shareLinkTemplate'
+        ]);
 	}); // Group: tools
 
 	// Quản lý file

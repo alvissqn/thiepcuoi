@@ -98,4 +98,10 @@ class ToolsController extends Controller{
 
     }
 
+    public function shareLinkTemplate($uuid = null, Request $request){
+        if($request->method() == "GET"){
+
+        }
+    }
+
 }

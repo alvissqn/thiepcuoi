@@ -231,7 +231,7 @@
 
                 selector.find('#modal-svg-library .palleon-tabs-menu').on('click','li',function(){
                     var idTarget = $(this).data('target');
-                    getLibrary();
+                    //getLibrary();
                 });
                 function getLibrary(){
                     $.ajax({
@@ -241,7 +241,7 @@
                         url: 'http://thiepcuoi.com/admin/tools/get-library',
                         success: function(jsondata){
                             $.each(jsondata['result'], function(key,value) {
-                                $('.palleon-grid').append("<div class='palleon-masonry-item' >");
+                                $('.palleon-grid').append("abc");
 
                             });
                         }
