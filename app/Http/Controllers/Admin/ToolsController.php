@@ -98,9 +98,11 @@ class ToolsController extends Controller{
 
     }
 
+
     public function shareLinkTemplate($uuid = null, Request $request){
         if($request->method() == "GET"){
-
+            $link = request()->getHost().'/token='.uniqid();
+            return response()->json(['result' => $link]);
         }
     }
 
